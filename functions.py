@@ -29,9 +29,19 @@ def verify(username, password):
         sleep(10)
         exit()
 
-def sudo(password):
+def sudo():
+    attempt_count = 0
+    attempt_limit = 3
+    uname = readfile('Settings/settings.json')
+    uname = uname["username"]
     passwd = readfile('Settings/settings.json')
     passwd = passwd["password"]
-    if password != passwd:
-        print("Incorrect password.")
-        
+    while attempt_count < attempt_limit:
+        password = input(f"[sudo] password for {uname}: ")
+        attempt_count += 1
+        if password == passwd:
+            break
+        else:
+            print("Sorry, try again")
+    else:
+        print("sudo: 3 incorrect password attempts")

@@ -1,11 +1,11 @@
 import datetime
-import json
+# import json
 from functions import speak
+from functions import readfile
 
-with open('Settings/settings.json') as settings_handler:
-    ai = json.load(settings_handler)
-
+ai = readfile('Settings/settings.json')
 ai = ai["AI Name"]
+print(ai)
 
 def greetUser():
     hour = int(datetime.datetime.now().hour)
@@ -30,4 +30,3 @@ def greetUserV():
 
     else:
         speak(f"Good Evening!")
-
