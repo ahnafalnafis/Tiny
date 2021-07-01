@@ -15,5 +15,3 @@ def readfile(filename):
     with open(filename) as file_handler:
         content = json.load(file_handler)
         return content
-
-print(readfile('settings.json'))

@@ -1,0 +1,22 @@
+{
+    "Open Youtube":{
+        "task": "https://youtube.com",
+        "task type": "url"
+    },
+    "Open Google":{
+        "task": "https://google.com",
+        "task type": "url"
+    },
+    "google chrome":{
+        "task": "google-chrome-stable",
+        "task type": "executing"
+    },
+    "Open Google Chrome":{
+        "task": "google-chrome-stable",
+        "task type": "executing"
+    },
+    "chrome":{
+        "task": "google-chrome-stable",
+        "task type": "executing"
+    }
+}
