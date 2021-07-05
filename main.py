@@ -1,11 +1,23 @@
 import datetime
 import time
 import os
+import platform
 from functions import readfile, speak, wget
 
-ai = readfile('Settings/settings.json')
-ai = ai["AI Name"]
+settings = readfile('Settings/settings.json')
+last_session = readfile("Settings/.last_session")
+ai = settings["AI Name"]
+name = settings["Name"]
 
+hour = datetime.datetime.now().hour
+minute = datetime.datetime.now().minute
+second = datetime.datetime.now().second
+operating_system = platform.system()
+print(f"You have now logged in from {operating_system} at {hour}:{minute}:{second}")
+last_session_file = open("Settings/.last_session")
+last_session_file.write(f"{operating_system} at {hour}:{minute}:{second}")
+last_session_file.close()
+print(f"You last logged in from {last_session}")
 
 def greetUser():
     hour = int(datetime.datetime.now().hour)
@@ -40,15 +52,8 @@ def app():
         cmds = readfile("Settings/commands.json")
         command = input(f"{user}: ").lower()
         try:
-            for cmd in cmds:
-                task = cmds[cmd]
-                if cmd in command:
-                    try:
-                        os.system(f"{task}")
-                    except:
-                        wget(task)
-
             if 'clear' in command:
+                # if operating_system == "linux":
                 os.system("clear")
 
             elif 'exit' in command or 'quit' in command or 'bye' in command:
