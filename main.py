@@ -13,6 +13,7 @@ hour = datetime.datetime.now().hour
 minute = datetime.datetime.now().minute
 second = datetime.datetime.now().second
 operating_system = platform.system()
+
 print(f"You have now logged in from {operating_system} at {hour}:{minute}:{second}")
 last_session_file = open("Settings/.last_session")
 last_session_file.write(f"{operating_system} at {hour}:{minute}:{second}")
