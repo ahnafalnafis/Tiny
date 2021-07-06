@@ -20,11 +20,11 @@ def readfile(filename):
     if filename.endswith(".json"):
         with open(filename) as file_handler:
             content = json.load(file_handler)
-            return content
     else:
-        file_handler = open(filename)
+        file_handler = open(filename, 'r')
         content = file_handler.read()
         file_handler.close()
+    return content
 
 
 def verify(username, password):

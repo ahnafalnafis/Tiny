@@ -1,6 +1,15 @@
 {
-    "youtube": "https://youtube.com",
-    "yt": "https://youtube.com",
-    "google": "https://google.com",
-    "test": "/a/Code/"
+    "yt":{
+        "task": "https://youtube.com",
+        "type": "url"
+    },
+    "open youtube":{
+        "task":"https://youtube.com",
+        "type":"url"
+    },
+    "open chrome":{
+        "task": "google-chrome-stable",
+        "alt task": "C:\\...",
+        "type": "executable"
+    }
 }

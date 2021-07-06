@@ -1,5 +1,5 @@
 # from time import perf_counter
-# from reader import readfile
+from reader import readfile
 
 # # kk = readfile('pp.json')
 # # for i in kk:
@@ -43,13 +43,13 @@
 # #     if cmd in command:
 # #         print(command)
 
-# cmd = input(">> ")
-# commands = readfile("pp.json")
-# cmd = commands[cmd]
-# task = cmd["task"]
-# task_type = cmd["task type"]
-# print(task)
-# print(task_type)
+cmd = input(">> ")
+commands = readfile("pp.json")
+cmd = commands[cmd]
+task = cmd["task"]
+type = cmd["type"]
+print(task)
+print(type)
 
 # # command_file = readfile("pp2.json")
 # # cmd  = input(">> ")
@@ -83,8 +83,9 @@
 # jf = "file.json"
 # pf = "file.py"
 # cf = ".file"
-inp = input(">> ").lower()
-if inp.endswith(".json"):
-    print('yeah')
-else:
-    print('no')
+
+# inp = input(">> ").lower()
+# if inp.endswith(".json"):
+#     print('yeah')
+# else:
+#     print('no')

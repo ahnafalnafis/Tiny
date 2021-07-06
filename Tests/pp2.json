@@ -2,16 +2,16 @@
     "Open Youtube": {
         "command": "yt",
         "task": "https://youtube.com",
-        "task type": "url"
+        "type": "url"
     },
     "Open Google": {
         "command": "google",
         "task": "https://google.com",
-        "task type": "url"
+        "type": "url"
     },
     "open google chrome": {
         "command": "chrome",
         "task": "google-chrome-stable",
-        "task type": "executable"
+        "type": "executable"
     }
 }
