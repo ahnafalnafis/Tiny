@@ -43,13 +43,13 @@ from reader import readfile
 # #     if cmd in command:
 # #         print(command)
 
-cmd = input(">> ")
-commands = readfile("pp.json")
-cmd = commands[cmd]
-task = cmd["task"]
-type = cmd["type"]
-print(task)
-print(type)
+# cmd = input(">> ")
+# commands = readfile("pp.json")
+# cmd = commands[cmd]
+# task = cmd["task"]
+# type = cmd["type"]
+# print(task)
+# print(type)
 
 # # command_file = readfile("pp2.json")
 # # cmd  = input(">> ")
@@ -89,3 +89,5 @@ print(type)
 #     print('yeah')
 # else:
 #     print('no')
+
+set_file = readfile("pp2.json")
