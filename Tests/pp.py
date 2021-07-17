@@ -1,5 +1,5 @@
-# from time import perf_counter
 from reader import readfile
+import datetime
 
 # # kk = readfile('pp.json')
 # # for i in kk:
@@ -91,3 +91,47 @@ from reader import readfile
 #     print('no')
 
 set_file = readfile("pp2.json")
+
+# date = datetime.datetime.now().date()
+# print(date)
+# weekday = datetime.datetime.now().weekday()
+# week = {
+#     0: "Monday",
+#     1: "Tuesday",
+#     2: "Wednesday",
+#     3: "Thursday",
+#     4: "Friday",
+#     5: "Saturday",
+#     6: "Sunday"
+# }
+# weekday = week[weekday]
+# weekday = datetime.datetime.now().strftime("%d-%m-%Y %a, %I:%M:%S %p")
+# print(weekday)
+
+# import platform
+# print(platform.platform())
+# import sys
+# inp = sys.stdin.readlines()
+# print(inp)
+
+import cmd
+
+class CmdParse(cmd.Cmd):
+    prompt = '> '
+    commands = []
+    def do_list(self, line):
+        print(self.commands)
+    def default(self, line):
+        print(line[::])
+        # Write your code here by handling the input entered
+        self.commands.append(line)
+    def do_exit(self, line):
+        return True
+
+if __name__ == '__main__':
+    CmdParse().cmdloop()
+
+# import sys
+
+# inp = sys.stdin.read()
+# print(inp)

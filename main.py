@@ -13,15 +13,13 @@ ai = settings["AI Name"]
 username = settings["username"]
 password = settings["password"]
 
-hour = datetime.datetime.now().hour
-minute = datetime.datetime.now().minute
-second = datetime.datetime.now().second
+last_time = datetime.datetime.now().strftime("%d-%m-%Y %a, %I:%M:%S %p")
 operating_system = platform.system()
+hostname = platform.node()
 
-print(
-    f"You have now logged in from {operating_system} at {hour}:{minute}:{second}")
+# print(f"You have now logged in from {operating_system} at {hour}:{minute}:{second} {date} {weekday}")         # Useles thing
 last_session_file = open("Settings/.last_session", 'w')
-last_session_file.write(f"{operating_system} at {hour}:{minute}:{second}")
+last_session_file.write(f"{operating_system} at {last_time} ")
 last_session_file.close()
 print(f"You last logged in from {last_session}")
 
