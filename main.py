@@ -68,7 +68,7 @@ def app():
                 print(f"{ai}: Command not found: {cmd}")
         except Exception as error:
             print(f"{ai}: {error}")
-            print(f"{ai}: Command not found: {cmd}")
+            # print(f"{ai}: Command not found: {cmd}")
 
 
 app()

@@ -1,15 +1,23 @@
 {
-    "yt":{
+    "yt": {
         "task": "https://youtube.com",
         "type": "url"
     },
-    "open youtube":{
-        "task":"https://youtube.com",
-        "type":"url"
+    "open youtube": {
+        "task": "https://youtube.com",
+        "type": "url"
     },
-    "open chrome":{
+    "open chrome": {
         "task": "google-chrome-stable",
         "alt task": "C:\\...",
         "type": "executable"
+    },
+    "open discord": {
+        "task": "https://discord.com/channels/@me",
+        "type": "url"
+    },
+    "open github": {
+        "task": "https://github.com",
+        "type": "url"
     }
 }
