@@ -17,7 +17,6 @@ last_time = datetime.datetime.now().strftime("%d-%m-%Y %a, %I:%M:%S %p")
 operating_system = platform.system()
 hostname = platform.node()
 
-# print(f"You have now logged in from {operating_system} at {hour}:{minute}:{second} {date} {weekday}")         # Useles thing
 last_session_file = open("Settings/.last_session", 'w')
 last_session_file.write(f"{operating_system} at {last_time} ")
 last_session_file.close()
@@ -46,14 +45,15 @@ def app():
                 content = commands[cmd]
                 task = content['task']
                 type = content['type']
+                alt_task = content["alt task"]
                 if type == 'url':
                     wget(task)
                 elif type == 'executable':
                     if operating_system == 'Windows':
-                        print('executing')
+                        os.system(alt_task)
                     else:
                         os.system(task)
-            if 'clear' in cmd:
+            elif 'clear' in cmd:
                 try:
                     os.system("clear")
                 except:

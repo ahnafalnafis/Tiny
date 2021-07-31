@@ -9,7 +9,7 @@
     },
     "open chrome": {
         "task": "google-chrome-stable",
-        "alt task": "C:\\...",
+        "alt task": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
         "type": "executable"
     },
     "open discord": {
