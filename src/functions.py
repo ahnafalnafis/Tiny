@@ -1,19 +1,10 @@
 import webbrowser
-import playsound
-from gtts import gTTS
 import json
 from time import sleep
 
 
 def wget(url):
     webbrowser.open(url)
-
-
-def speak(text):
-    tts = gTTS(text=text, lang='en')
-    filename = 'voice.mp3'
-    tts.save(filename)
-    playsound.playsound(filename)
 
 
 def readfile(filename):
@@ -28,9 +19,9 @@ def readfile(filename):
 
 
 def verify(username, password):
-    uname = readfile('Settings/settings.json')
+    uname = readfile('config/config.json')
     uname = uname["username"]
-    passwd = readfile('Settings/settings.json')
+    passwd = readfile('config/config.json')
     passwd = passwd["password"]
 
     if username != uname or password != passwd:
@@ -42,9 +33,9 @@ def verify(username, password):
 def sudo():
     attempt_count = 0
     attempt_limit = 3
-    uname = readfile('Settings/settings.json')
+    uname = readfile('config/config.json')
     uname = uname["username"]
-    passwd = readfile('Settings/settings.json')
+    passwd = readfile('config/config.json')
     passwd = passwd["password"]
     while attempt_count < attempt_limit:
         password = input(f"[sudo] password for {uname}: ")

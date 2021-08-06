@@ -4,20 +4,20 @@ import os
 import platform
 from functions import readfile, wget
 
-settings = readfile('Settings/settings.json')
-last_session = readfile("Settings/.last_session")
+config = readfile('config/settings.json')
+last_session = readfile("config/.last_session")
 
-name = settings["Name"]
-user = settings["Nickname"]
-ai = settings["AI Name"]
-username = settings["username"]
-password = settings["password"]
+name = config["Name"]
+user = config["Nickname"]
+ai = config["AI Name"]
+username = config["username"]
+password = config["password"]
 
 last_time = datetime.datetime.now().strftime("%d-%m-%Y %a, %I:%M:%S %p")
 operating_system = platform.system()
 hostname = platform.node()
 
-last_session_file = open("Settings/.last_session", 'w')
+last_session_file = open("config/.last_session", 'w')
 last_session_file.write(f"{operating_system} at {last_time} ")
 last_session_file.close()
 print(f"You last logged in from {last_session}")
@@ -38,7 +38,7 @@ def greetUser():
 
 def app():
     while True:
-        commands = readfile("Settings/commands.json")
+        commands = readfile("config/commands.json")
         cmd = input(f"{user}: ").lower()
         try:
             if cmd in commands:
