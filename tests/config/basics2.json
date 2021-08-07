@@ -1,0 +1,70 @@
+{
+    "intents": {
+        "greetings": {
+            "patterns": [
+                "hello",
+                "hey",
+                "hi",
+                "good day",
+                "greetings",
+                "what's up",
+                "how is it going",
+                "what's going on?"
+            ],
+            "response": [
+                "Hello!",
+                "Hi!",
+                "What I can do for you?"
+            ]
+        },
+        "goodbye": {
+            "patterns": [
+                "see you later",
+                "goodbye",
+                "i'm leaving",
+                "have a good day",
+                "bye",
+                "see you"
+            ],
+            "response": [
+                "Hello!",
+                "Hi!",
+                "What I can do for you?"
+            ]
+        },
+        "age": {
+            "patterns": [
+                "how old are you?",
+                "how old is ahnaf?",
+                "how old",
+                "what's your age?",
+                "age?"
+            ],
+            "response": [
+                "My owner Ahnaf is 15 years old",
+                "15 years"
+            ]
+        },
+        "name": {
+            "patterns": [
+                "what's your name?",
+                "name?",
+                "what's uor owners name?",
+                "what should i call you?",
+                "who are you?",
+                "who is ahnaf",
+                "can you tell me what's your name?",
+                "can you tell me what's your owners name?"
+            ],
+            "response": [
+                "You can call me JARVIS",
+                "My owner is Sir Ahnaf Al Nafis",
+                "Ahnaf",
+                "Ahnaf Al Nafis",
+                "Nafis",
+                "JARVIS",
+                "I'm JARVIS, A.I assistant of Sir Ahnaf"
+            ]
+        }
+    }
+}

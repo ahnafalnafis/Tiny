@@ -1,0 +1,34 @@
+{
+    "open youtube": {
+        "task": "https://youtube.com",
+        "type": "url"
+    },
+    "open chrome": {
+        "task": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "type": "executable"
+    },
+    "open discord": {
+        "task": "https://discord.com/channels/@me",
+        "type": "url"
+    },
+    "open github": {
+        "task": "https://github.com",
+        "type": "url"
+    },
+    "open vscode": {
+        "task": "C:\\Users\\Ahnaf\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "type": "executable"
+    },
+    "user info": {
+        "task": "config/.user",
+        "type": "file reading"
+    },
+    "write": {
+        "task": "",
+        "type": "file writing"
+    },
+    "read": {
+        "task": "",
+        "type": "file reading"
+    }
+}
