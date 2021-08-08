@@ -43,14 +43,22 @@ def app():
         commands = readfile("config/commands.json")
         cmd = input(f"{user}: ").lower()
         basics = readfile('config/basics.json')
+        greeted = False
+        # basic_knowledge = list()
         try:
-            for basic in basics:
-                tags = basics[basic]
-                patterns = tags["patterns"]
-                responses = tags["response"]
-                for pattern in patterns:
-                    if cmd in pattern:
-                        print(random.choice(responses))
+            # if cmd in basics["greetings"]["patterns"]:
+            #     print(random.choice(basics["greetings"]["response"]))
+
+            # elif cmd in basics["goodbye"]["patterns"]:
+            #     print(random.choice(basics["goodbye"]["response"]))
+
+            # elif cmd in basics["age"]["patterns"]:
+            #     print(random.choice(basics["age"]["response"]))
+
+            # elif cmd in basics["name"]["patterns"]:
+            #     print(random.choice(basics["name"]["response"]))
+
+            # greeted = True
 
             if cmd in commands:
                 content = commands[cmd]
@@ -92,13 +100,22 @@ def app():
                 except:
                     os.system('cls')
 
-            elif 'exit' in cmd or 'quit' in cmd or 'bye' in cmd:
-                print("Have a nice day 😊. \nGood bye.\nExiting...")
-                # time.sleep(2)
+            elif 'exit' in cmd or 'quit' in cmd:
+                print("Exiting...")
+                time.sleep(2)
                 break
-
             else:
-                print(f"{ai}: Command not found: {cmd}")
+                for basic in basics:
+                    patterns = basics[basic]["patterns"]
+                    response = basics[basic]["response"]
+                    for pattern in patterns:
+                        if pattern in cmd:
+                            print(random.choice(response))
+                            greeted = True
+                else:
+                    if not greeted:
+                        print(f"{ai}: Command not found: {cmd}")
+
         except Exception as error:
             print(f"{ai}: {error}")
 
