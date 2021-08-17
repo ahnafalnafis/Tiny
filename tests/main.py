@@ -42,24 +42,7 @@ def app():
     while True:
         commands = readfile("config/commands.json")
         cmd = input(f"{user}: ").lower()
-        basics = readfile('config/basics.json')
-        greeted = False
-        # basic_knowledge = list()
         try:
-            # if cmd in basics["greetings"]["patterns"]:
-            #     print(random.choice(basics["greetings"]["response"]))
-
-            # elif cmd in basics["goodbye"]["patterns"]:
-            #     print(random.choice(basics["goodbye"]["response"]))
-
-            # elif cmd in basics["age"]["patterns"]:
-            #     print(random.choice(basics["age"]["response"]))
-
-            # elif cmd in basics["name"]["patterns"]:
-            #     print(random.choice(basics["name"]["response"]))
-
-            # greeted = True
-
             if cmd in commands:
                 content = commands[cmd]
                 task = content['task']
@@ -94,24 +77,27 @@ def app():
             elif cmd == "restart" or cmd == "reboot":
                 os.system('shutdown -r')
 
-            elif 'clear' in cmd:
+            elif cmd == "clear":
                 try:
                     os.system("clear")
                 except:
                     os.system('cls')
 
-            elif 'exit' in cmd or 'quit' in cmd:
+            elif cmd == "exit" or cmd == "quit":
                 print("Exiting...")
                 time.sleep(2)
                 break
             else:
+                greeted = False
+                basics = readfile('config/basics.json')
                 for basic in basics:
                     patterns = basics[basic]["patterns"]
                     response = basics[basic]["response"]
                     for pattern in patterns:
-                        if pattern in cmd:
+                        if pattern in cmd.split():
                             print(random.choice(response))
                             greeted = True
+                            break
                 else:
                     if not greeted:
                         print(f"{ai}: Command not found: {cmd}")

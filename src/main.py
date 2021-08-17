@@ -1,8 +1,10 @@
 import datetime
+import random
 import time
 import os
+import subprocess
 import platform
-from functions import readfile, wget
+from functions import readfile, wget, writefile
 
 config = readfile('config/settings.json')
 last_session = readfile("config/.last_session")
@@ -44,31 +46,65 @@ def app():
             if cmd in commands:
                 content = commands[cmd]
                 task = content['task']
-                type = content['type']
-                alt_task = content["alt task"]
-                if type == 'url':
+                task_type = content['type']
+
+                if task_type == 'url':
                     wget(task)
-                elif type == 'executable':
-                    if operating_system == 'Windows':
-                        os.system(alt_task)
+
+                elif task_type == 'executable':
+                    if operating_system == "Windows":
+                        subprocess.Popen(task)
                     else:
                         os.system(task)
-            elif 'clear' in cmd:
+
+                elif task_type == "command":
+                    os.system(task)
+
+                elif task_type == "file reading":
+                    if task == "":
+                        print(readfile(input("File: ")))
+                    else:
+                        print(readfile(task))
+
+                elif task_type == "file writing":
+                    file = input("File: ")
+                    content = input("Content: ")
+                    writefile(content, file)
+
+            elif cmd == "shutdown" or cmd == "poweroff":
+                os.system("shutdown -s")
+
+            elif cmd == "restart" or cmd == "reboot":
+                os.system('shutdown -r')
+
+            elif cmd == "clear":
                 try:
                     os.system("clear")
                 except:
                     os.system('cls')
 
-            elif 'exit' in cmd or 'quit' in cmd or 'bye' in cmd:
-                print("Have a nice day 😊. \nGood bye.\nExiting ")
-                time.sleep(5)
+            elif cmd == "exit" or cmd == "quit":
+                print("Exiting...")
+                time.sleep(2)
                 break
-
             else:
-                print(f"{ai}: Command not found: {cmd}")
+                greeted = False
+                basics = readfile('config/basic-knowledges.json')
+                for basic in basics:
+                    patterns = basics[basic]["patterns"]
+                    response = basics[basic]["response"]
+                    for pattern in patterns:
+                        if pattern in cmd.split():
+                            print(random.choice(response))
+                            greeted = True
+                            break
+                else:
+                    if not greeted:
+                        print(f"{ai}: Command not found: {cmd}")
+
         except Exception as error:
             print(f"{ai}: {error}")
-            # print(f"{ai}: Command not found: {cmd}")
 
 
-app()
+if __name__ == "__main__":
+    app()
