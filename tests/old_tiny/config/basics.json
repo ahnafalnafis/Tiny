@@ -1,0 +1,40 @@
+{
+  "greetings": {
+    "patterns": [
+      "hello",
+      "hey",
+      "hi",
+      "good day",
+      "greetings",
+      "what's up",
+      "how is it going",
+      "what's going on"
+    ],
+    "response": ["Hello!", "Hi!", "Good day"]
+  },
+  "goodbye": {
+    "patterns": [
+      "see you later",
+      "goodbye",
+      "i'm leaving",
+      "have a good day",
+      "bye",
+      "see you"
+    ],
+    "response": ["Goodbye", "See you later", "Have a good day"]
+  },
+  "age": {
+    "patterns": ["how old are you", "how old", "what's your age", "age"],
+    "response": ["I'm a Artificial Intelligence, I have no age"]
+  },
+  "name": {
+    "patterns": [
+      "what's your name",
+      "name",
+      "what should i call you",
+      "who are you",
+      "can you tell me what's your name"
+    ],
+    "response": ["You can call me Tiny", "Tiny"]
+  }
+}
