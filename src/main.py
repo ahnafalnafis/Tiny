@@ -4,10 +4,10 @@ import time
 import os
 import subprocess
 import platform
-from functions import readfile, wget, writefile
+from functions import read, wget, writefile
 
-config = readfile('config/settings.json')
-last_session = readfile("config/.last_session")
+config = read('config/settings.json')
+last_session = read("config/.last_session")
 
 name = config["Name"]
 user = config["Nickname"]
@@ -40,7 +40,7 @@ def greetUser():
 
 def app():
     while True:
-        commands = readfile("config/commands.json")
+        commands = read("config/commands.json")
         cmd = input(f"{user}: ").lower()
         try:
             if cmd in commands:
@@ -62,9 +62,9 @@ def app():
 
                 elif task_type == "file reading":
                     if task == "":
-                        print(readfile(input("File: ")))
+                        print(read(input("File: ")))
                     else:
-                        print(readfile(task))
+                        print(read(task))
 
                 elif task_type == "file writing":
                     file = input("File: ")
@@ -89,7 +89,7 @@ def app():
                 break
             else:
                 greeted = False
-                basics = readfile('config/basic-knowledges.json')
+                basics = read('config/basic-knowledges.json')
                 for basic in basics:
                     patterns = basics[basic]["patterns"]
                     response = basics[basic]["response"]

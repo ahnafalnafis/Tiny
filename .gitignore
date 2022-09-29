@@ -1,3 +1,6 @@
 __pycache__
 voice.mp3
 .vscode
+Lib
+Scripts
+pyvenv.cfg
